@@ -1,15 +1,17 @@
 ## テーブル設計
 
 ## usersテーブル
-| Column         | Type   | Options     |
-| -------------- | ------ | ----------- |
-| nickname       | string | null: false |
-| email          | string | null: false |
-| password       | string | null: false |
-| check_password | string | null: false |
-| mane           | string | null: false |
-| kana_name      | string | null: false |
-| birthday       | date   | null: false |
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| nickname         | string | null: false |
+| email            | string | null: false |
+| password         | string | null: false |
+| check_password   | string | null: false |
+| family_name      | string | null: false |
+| first_name       | string | null: false |
+| kana_family_name | string | null: false |
+| kana_first_name  | string | null: false |
+| birthday         | date   | null: false |
 
 ### Association
 - has_many : items
@@ -21,14 +23,14 @@
 ## itemsテーブル
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| item_image          | text       | null: false                    |
-| item_name           | string     | null: false                    |
-| item_describe       | text       | null: false                    |
-| item_category       | string     | null: false                    |
-| item_status         | string     | null: false                    |
-| delivery_fee        | string     | null: false                    |
-| ship_from           | string     | null: false                    |
-| days_until_sjipping | string     | null: false                    |
+| image               | string     | null: false                    |
+| name                | string     | null: false                    |
+| describe            | text       | null: false                    |
+| category            | integer    | null: false                    |
+| status              | integer    | null: false                    |
+| delivery_fee        | integer    | null: false                    |
+| ship_from           | integer    | null: false                    |
+| days_until_shipping | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
@@ -55,9 +57,6 @@
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
 | item            | references | null: false, foreign_key: true |
-| card_num        | integer    | null: false                    |
-| expiration_date | date       | null: false                    |
-| security_code   | integer    | null: false                    |
 
 ### Association
 - belongs_to : user
@@ -65,16 +64,16 @@
 - has_one : shopping_address
 
 ## shopping_addressesテーブル
-| Column          | Type       | Option                         |
-| --------------- | ---------- | -------------------------------|
-| post_code       | string     | null: false                    |
-| prefecture      | string     | null: false                    |
-| city            | string     | null: false                    |
-| address         | string     | null: false                    |
-| billding_name   | string     |                                |
-| tel_num         | string     | null: false                    |
-| user            | references | null: false, foreign_key: true |
-| item            | references | null: false, foreign_key: true |
+| Column               | Type       | Option                         |
+| -------------------- | ---------- | -------------------------------|
+| post_code            | string     | null: false                    |
+| prefecture           | string     | null: false                    |
+| city                 | integer    | null: false                    |
+| address              | string     | null: false                    |
+| billding_name        | string     |                                |
+| tel_num              | string     | null: false                    |
+| pruchase_manegiments | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : pruchase_manegiment
+- belongs_to_active_hash :city
