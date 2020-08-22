@@ -15,8 +15,7 @@
 
 ### Association
 - has_many : items
-- has_many : coments
-- has_many : credit_cards
+- has_many : comments
 - has_many : shopping_addres
 
 
@@ -36,11 +35,11 @@
 
 ### Association
 - belongs_to : user
-- has_many : coments
-- has_one : shopping_addresses
+- has_many : comments
+- has_many : pruchase_manegiments
 
 
-## comentsテーブル
+## commentsテーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | content        | text       | null: false                    |
