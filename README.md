@@ -30,7 +30,7 @@
 | ship_from           | string     | null: false                    |
 | days_until_sjipping | string     | null: false                    |
 | price               | integer    | null: false                    |
-| user_id             | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : user
@@ -42,38 +42,39 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | content        | text       | null: false                    |
-| user_id        | references | null: false, foreign_key: true |
-| item_id        | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+| item           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : user
 - belongs_to : item
 
 
-## credit_cardsテーブル
-| Column          | Type       | Option                         |
-| --------------- | ---------- | -------------------------------|
+## pruchase_manegimentsテーブル
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| user            | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
 | card_num        | integer    | null: false                    |
 | expiration_date | date       | null: false                    |
 | security_code   | integer    | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to : user
-
-
-## shopping_addresses
-| Column        | Type       | Option                         |
-| ------------- | ---------- | -------------------------------|
-| post_code     | integer    | null: false                    |
-| prefecture    | integer    | null: false                    |
-| city          | integer    | null: false                    |
-| address       | integer    | null: false                    |
-| billding_name | integer    |                                |
-| tel_num       | integer    | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
-| item_id       | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : user
 - belongs_to : item
+- has_one : shopping_address
+
+## shopping_addressesテーブル
+| Column          | Type       | Option                         |
+| --------------- | ---------- | -------------------------------|
+| post_code       | string     | null: false                    |
+| prefecture      | string     | null: false                    |
+| city            | string     | null: false                    |
+| address         | string     | null: false                    |
+| billding_name   | string     |                                |
+| tel_num         | string     | null: false                    |
+| user            | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to : pruchase_manegiment
