@@ -20,18 +20,18 @@
 
 
 ## itemsテーブル
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| image               | string     | null: false                    |
-| name                | string     | null: false                    |
-| describe            | text       | null: false                    |
-| category            | integer    | null: false                    |
-| status              | integer    | null: false                    |
-| delivery_fee        | integer    | null: false                    |
-| ship_from           | integer    | null: false                    |
-| days_until_shipping | integer    | null: false                    |
-| price               | integer    | null: false                    |
-| user                | references | null: false, foreign_key: true |
+| Column                 | Type       | Options                        |
+| ---------------------- | ---------- | ------------------------------ |
+| image                  | string     | null: false                    |
+| name                   | string     | null: false                    |
+| describe               | text       | null: false                    |
+| category-id            | integer    | null: false                    |
+| status-id              | integer    | null: false                    |
+| delivery_fee-id        | integer    | null: false                    |
+| ship_from-id           | integer    | null: false                    |
+| days_until_shipping-id | integer    | null: false                    |
+| price                  | integer    | null: false                    |
+| user                   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : user
@@ -67,7 +67,7 @@
 | -------------------- | ---------- | -------------------------------|
 | post_code            | string     | null: false                    |
 | prefecture           | string     | null: false                    |
-| city                 | integer    | null: false                    |
+| city                 | string     | null: false                    |
 | address              | string     | null: false                    |
 | billding_name        | string     |                                |
 | tel_num              | string     | null: false                    |
