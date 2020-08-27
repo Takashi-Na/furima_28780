@@ -1,0 +1,2 @@
+class DelvFee < ApplicationRecord
+end
