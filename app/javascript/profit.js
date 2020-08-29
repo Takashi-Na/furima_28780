@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
     //inputElementのitem-priceに入力した値を取得して、変数に代入
     const input_price = document.getElementById("item-price").value
     //その変数を用いて手数料と取引利益を計算する
-    const tax_price = input_price * 0.1
+    const tax_price = Math.floor(input_price * 0.1)
     const profit_price = input_price - tax_price
     console.log(profit_price)
     //計算した値をinnerHTMLを使い、addTaxPlace,profitElementに反映させる
