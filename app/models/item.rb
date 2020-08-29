@@ -1,2 +1,11 @@
 class Item < ApplicationRecord
-end
+  validates :image, :name, :describe, :price, presence: true
+  PRICE_REGEX = /[0-9]+\d/.freeze
+  validates_format_of :price, with: PRICE_REGEX, message:'Half-width number'
+  validates :price, numericality:{other_than: 299, less_than_or_equal_to: 10000000, message:'Out of setting range'}
+  validates :category_id, numericality:{other_than: 1, message:'Select'}
+  validates :status_id, numericality:{other_than: 1, message:'Select'}
+  validates :delv_fee_id, numericality:{other_than: 1, message:'Select'}
+  validates :ship_from_id, numericality:{other_than: 1, message:'Select'}
+  validates :delv_days_id, numericality:{other_than: 1, message:'Select'}
+end 
