@@ -14,5 +14,4 @@ class User < ApplicationRecord
 
   KANA_NAME_REGEX = /\A[ァ-ン]+\z/.freeze
   validates_format_of :kana_family_name, :kana_first_name, with: KANA_NAME_REGEX, message: 'には全角カタカナで入力してください'
-
 end
