@@ -37,8 +37,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it ":priceが半角数字以外だと登録できない" do
+        @item.price = '１０００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price Half-width number")
       end
       it ":priceが300~9999999の範囲外だと登録できない" do
+        @item.price = '100'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
       it ":category_idが「---」だと登録できない" do
         @item.category_id = '0'
