@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
-  const inputElement = document.getElementById('item-price')
-  const addTaxPrice = document.getElementById('add-tax-price')
-  const profitElement = document.getElementById('profit')
+  const inputElement = document.getElementById("item-price")
+  const addTaxPrice = document.getElementById("add-tax-price")
+  const profitElement = document.getElementById("profit")
 
   inputElement.addEventListener('keyup', function () {
     //inputElementのitem-priceに入力した値を取得して、変数に代入
