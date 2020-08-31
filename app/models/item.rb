@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  validates :name, :describe, :price, presence: true
+  validates :image, :name, :describe, :price, presence: true
   PRICE_REGEX = /[0-9]+\d/.freeze
   validates_format_of :price, with: PRICE_REGEX, message: 'Half-width number'
   validates :price, numericality: { greater_than: 299, less_than: 10_000_000, message: 'Out of setting range' }
