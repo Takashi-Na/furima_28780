@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-    image { Faker::Lorem.sentence }
     name { Faker::Lorem.sentence }
     describe { Faker::Lorem.sentence }
     price { 1000 }

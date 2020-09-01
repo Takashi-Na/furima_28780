@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
   validates :image, :name, :describe, :price, presence: true
   PRICE_REGEX = /[0-9]+\d/.freeze
   validates_format_of :price, with: PRICE_REGEX, message: 'Half-width number'

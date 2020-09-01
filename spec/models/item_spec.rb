@@ -2,6 +2,7 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
+    @item.image = fixture_file_upload('public/images/test_image.png')
   end
 
   describe '商品出品' do
@@ -17,7 +18,7 @@ RSpec.describe Item, type: :model do
 
     context '出品がうまくいかないとき' do
       it ':imageが空だと登録できない' do
-        @item.image = ''
+        @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
