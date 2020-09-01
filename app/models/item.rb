@@ -1,6 +1,15 @@
 class Item < ApplicationRecord
   belongs_to :user
+
   has_one_attached :image
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :status
+  belongs_to_active_hash :delv_fee
+  belongs_to_active_hash :ship_from
+  belongs_to_active_hash :delv_days
+
   validates :image, :name, :describe, :price, presence: true
   PRICE_REGEX = /[0-9]+\d/.freeze
   validates_format_of :price, with: PRICE_REGEX, message: 'Half-width number'
