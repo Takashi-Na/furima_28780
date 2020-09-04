@@ -15,8 +15,8 @@
 
 ### Association
 - has_many : items
-- has_many : comments
-- has_many : shopping_addres
+- has_many : orders
+<!-- - has_many : comments -->
 
 
 ## itemsテーブル
@@ -35,11 +35,11 @@
 
 ### Association
 - belongs_to : user
-- has_many : comments
-- has_many : pruchase_manegiments
+- has_many : orders
+<!-- - has_many : comments -->
 
 
-## commentsテーブル
+<!-- ## commentsテーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | content        | text       | null: false                    |
@@ -48,14 +48,15 @@
 
 ### Association
 - belongs_to : user
-- belongs_to : item
+- belongs_to : item -->
 
 
-## pruchase_manegimentsテーブル
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| user            | references | null: false, foreign_key: true |
-| item            | references | null: false, foreign_key: true |
+## orderテーブル
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
+| shopping_address | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : user
@@ -63,16 +64,16 @@
 - has_one : shopping_address
 
 ## shopping_addressesテーブル
-| Column               | Type       | Option                         |
-| -------------------- | ---------- | -------------------------------|
-| post_code            | string     | null: false                    |
-| prefecture           | string     | null: false                    |
-| city                 | string     | null: false                    |
-| address              | string     | null: false                    |
-| billding_name        | string     |                                |
-| tel_num              | string     | null: false                    |
-| pruchase_manegiments | references | null: false, foreign_key: true |
+| Column        | Type       | Option                         |
+| ------------- | ---------- | -------------------------------|
+| post_code     | string     | null: false                    |
+| prefecture    | string     | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| billding_name | string     |                                |
+| tel_num       | string     | null: false                    |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to : pruchase_manegiment
+- belongs_to : order
 - belongs_to_active_hash :city
