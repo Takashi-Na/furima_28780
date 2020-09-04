@@ -67,7 +67,7 @@
 | Column        | Type       | Option                         |
 | ------------- | ---------- | -------------------------------|
 | post_code     | string     | null: false                    |
-| prefecture    | string     | null: false                    |
+| prefecture    | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
 | billding_name | string     |                                |
@@ -76,4 +76,4 @@
 
 ### Association
 - belongs_to : order
-- belongs_to_active_hash :city
+- belongs_to_active_hash :prefecture
