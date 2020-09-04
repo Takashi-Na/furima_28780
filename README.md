@@ -52,18 +52,18 @@
 
 
 ## orderテーブル
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| user             | references | null: false, foreign_key: true |
-| item             | references | null: false, foreign_key: true |
-| shopping_address | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+| address | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : user
 - belongs_to : item
-- has_one : shopping_address
+- has_one : address
 
-## shopping_addressesテーブル
+## addressesテーブル
 | Column        | Type       | Option                         |
 | ------------- | ---------- | -------------------------------|
 | post_code     | string     | null: false                    |
