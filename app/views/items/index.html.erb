@@ -132,11 +132,12 @@
               <div class='item-img-content'>
                 <%= image_tag item.image, class: "item-img" %>
 
-                <%# 商品が売れていればsold outの表示 %>
-                <div class='sold-out'>
+                <%# 売り切れた場合の表記 %>
+                <% if Order.exists?(item_id: item.id) %>
+                  <div class='sold-out'>
                   <span>Sold Out!!</span>
-                </div>
-                <%# //商品が売れていればsold outの表示 %>
+                  </div>
+                <% end %>
 
               </div>
               <div class='item-info'>
@@ -144,7 +145,7 @@
                   <%= item.name %>
                 </h3>
                 <div class='item-price'>
-                  <span><%= item.price %>円<br>(税込み)</span>
+                  <span><%= item.price.to_s(:delimited) %>円<br>(税込み)</span>
                   <div class='star-btn'>
                     <%= image_tag "star.png", class:"star-icon" %>
                     <span class='star-count'>0</span>
@@ -182,7 +183,7 @@
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
   <% if user_signed_in? %>
-    <%= link_to new_item_path, data:{turbolinks: false} do %>
+    <%= link_to new_item_path do %>
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
     <% end %>
   <% else %>
