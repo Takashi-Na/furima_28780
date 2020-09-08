@@ -1,5 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_test_1a53bbbec9523a108e9518d6");
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -30,6 +30,12 @@ const pay = () => {
       document.getElementById("charge-form").submit();
       document.getElementById("charge-form").reset();
       } else {
+        const renderDom = document.getElementById("charge-form");
+        const tokenObj = `<input value="" type="hidden" name='token'>`
+        renderDom.insertAdjacentHTML("beforeend", tokenObj);
+
+        document.getElementById("charge-form").submit();
+        document.getElementById("charge-form").reset();
       }
     });
   });
